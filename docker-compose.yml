@@ -1,0 +1,37 @@
+version: '3.4'
+x-service-environment: &service-environment
+    VSCODE_DEBUGGING: ${VSCODE_DEBUGGING}
+
+    DEXCOM_USERNAME: ${DEXCOM_USERNAME}
+    DEXCOM_PASSWORD: ${DEXCOM_PASSWORD}
+    CALDAV_URL: ${CALDAV_URL:-http://service:8000/dav/user}
+    CALDAV_USER: ${CALDAV_USER:-user}
+    CALDAV_PASSWORD: ${CALDAV_PASSWORD:-password}
+    PORT: 8000
+
+x-service-image: &service-image
+    build:
+        context: .
+        dockerfile: docker/Dockerfile
+    volumes:
+        - ./:/app
+        - ./docker/start_worker.sh:/start_worker.sh
+    environment:
+        <<: *service-environment
+
+services:
+    service:
+        <<: *service-image
+        ports:
+            - 8000:8000
+        command: uwsgi config/xandikos.ini
+        # depends_on:
+        #     - worker
+        expose:
+            - 8000
+
+    worker:
+        <<: *service-image
+        command: bash /start_worker.sh
+        ports:
+            - 10009:10009

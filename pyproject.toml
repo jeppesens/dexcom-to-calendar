@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "bg-calendar"
+version = "0.1.0"
+description = "Fetching BG and publishing a calendar"
+authors = ["Tobias Jeppesen <github@tobiasjeppesen.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pydexcom = {git = "https://github.com/jeppesens/pydexcom.git"}
+caldav = "^0.8.2"
+uWSGI = "^2.0.20"
+xandikos = "^0.2.8"
+icalendar = "^4.0.9"
+
+[tool.poetry.dev-dependencies]
+mypy = "^0.910"
+flake8 = "^3.9.0"
+flake8-quotes = "^3.2.0"
+debugpy = "^1.2.1"
+watchdog = {extras = ["watchmedo"], version = "^2.1.0"}
+autopep8 = "^1.5.7"
+isort = "^5.9.3"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
