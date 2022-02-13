@@ -28,6 +28,7 @@ DEXCOM_PASSWORD
 CALDAV_USER
 CALDAV_PASSWORD
 ```
-7. Login to the caldav account on your device
+7. Add the env `CALDAV_HOST` and set it to the apps host e.g `dexcom-calendar.herokuapp.com`
+8. Login to the caldav account on your device
 
 ---
