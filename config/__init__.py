@@ -7,7 +7,7 @@ class _Config(type):
     def _bool(self, env: str, default: bool = None) -> Optional[bool]:
         v: str
         if default is None:
-            v = os.environ['DESCOM_OUTSIDE_US']
+            v = os.environ['DEXCOM_OUTSIDE_US']
         else:
             v = os.getenv(env, '')
 
@@ -26,8 +26,8 @@ class _Config(type):
         return os.environ['DEXCOM_USERNAME']
 
     @property
-    def DESCOM_OUTSIDE_US(self) -> bool:
-        return self._bool('DESCOM_OUTSIDE_US', True)  # type: ignore
+    def DEXCOM_OUTSIDE_US(self) -> bool:
+        return self._bool('DEXCOM_OUTSIDE_US', True)  # type: ignore
 
     @property
     def TICK_SEC(self) -> int:

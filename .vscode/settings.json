@@ -1,9 +1,12 @@
 {
     "cSpell.words": [
+        "buildpacks",
         "CALDAV",
         "dtend",
         "ical",
         "pydexcom",
+        "pytz",
+        "uwsgi",
         "VEVENT",
         "xandikos"
     ]

@@ -5,5 +5,5 @@ from config import Config
 Dexcom = DexcomClient(
     username=Config.DEXCOM_USERNAME,
     password=Config.DEXCOM_PASSWORD,
-    ous=Config.DESCOM_OUTSIDE_US,
+    ous=Config.DEXCOM_OUTSIDE_US,
 )

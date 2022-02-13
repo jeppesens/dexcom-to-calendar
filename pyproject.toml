@@ -5,12 +5,13 @@ description = "Fetching BG and publishing a calendar"
 authors = ["Tobias Jeppesen <github@tobiasjeppesen.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "3.9.10"
 pydexcom = {git = "https://github.com/jeppesens/pydexcom.git"}
 caldav = "^0.8.2"
 uWSGI = "^2.0.20"
 xandikos = "^0.2.8"
 icalendar = "^4.0.9"
+supervisor = "^4.2.4"
 
 [tool.poetry.dev-dependencies]
 mypy = "^0.910"
@@ -20,6 +21,7 @@ debugpy = "^1.2.1"
 watchdog = {extras = ["watchmedo"], version = "^2.1.0"}
 autopep8 = "^1.5.7"
 isort = "^5.9.3"
+types-pytz = "^2021.3.4"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

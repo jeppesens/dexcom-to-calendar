@@ -2,7 +2,15 @@ from datetime import datetime
 from typing import Any
 import uuid
 
+import pytz
+
 from icalendar import Calendar, Event  # type: ignore
+
+
+def _assume_utc_date(d: datetime) -> datetime:
+    if not d.tzinfo:
+        return pytz.utc.localize(d)
+    return d
 
 
 def create_ical(dtstart: datetime, dtend: datetime, summary: str, **kwargs: Any) -> str:
@@ -15,8 +23,8 @@ def create_ical(dtstart: datetime, dtend: datetime, summary: str, **kwargs: Any)
     component.add('uid', uuid.uuid1())
 
     attributes = {
-        'dtstart': dtstart,
-        'dtend': dtend,
+        'dtstart': _assume_utc_date(dtstart),
+        'dtend': _assume_utc_date(dtend),
         'summary': summary,
         **kwargs,
     }

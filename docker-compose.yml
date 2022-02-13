@@ -35,3 +35,15 @@ services:
         command: bash /start_worker.sh
         ports:
             - 10009:10009
+    ngrok:
+        image: wernight/ngrok:latest
+        environment:
+            NGROK_PORT: service:8000
+            NGROK_REGION: eu
+            # NGROK_BINDTLS: "true"
+            NGROK_AUTH: ${NGROK_AUTH}
+            NGROK_SUBDOMAIN: ${NGROK_SUBDOMAIN}
+        ports:
+            - '4040:4040' # for their really nice interface
+        depends_on:
+            - service
